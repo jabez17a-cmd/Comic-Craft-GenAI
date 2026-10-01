@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="heading">
+
+  <div class="eyebrow">
+    COMIC PREVIEW
+  </div>
+
+  <h1>
+    Your comic is ready.
+  </h1>
+
+  <p>
+    Review the panels and download
+    the complete PDF.
+  </p>
+
+</section>
+
+
+<section class="panels">
+
+{% for panel in layout %}
+
+<article class="panel card">
+
+  <div class="panel-title">
+
+    <span>
+      Panel {{ panel.panel_number }}
+    </span>
+
+    <h2>
+      {{ panel.title }}
+    </h2>
+
+  </div>
+
+
+  <img
+    src="{{ panel.image_url }}"
+    alt="Comic panel {{ panel.panel_number }}"
+  >
+
+
+  <div class="copy">
+
+    <p class="scene">
+      {{ panel.scene_description }}
+    </p>
+
+
+    {% if panel.caption %}
+
+    <p>
+      <b>Caption:</b>
+      {{ panel.caption }}
+    </p>
+
+    {% endif %}
+
+
+    <p>
+      <b>Narration:</b>
+      {{ panel.narration }}
+    </p>
+
+    {% if panel.image_prompt %}
+
+    <p class="image-prompt">
+      <b>Image Prompt Reference:</b>
+      {{ panel.image_prompt }}
+    </p>
+
+    {% endif %}
+
+    {% if panel.dialogue %}
+
+    <p class="dialogue">
+
+      <b>Dialogue:</b>
+
+      {{ panel.dialogue }}
+
+    </p>
+
+    {% endif %}
+
+  </div>
+
+</article>
+
+{% endfor %}
+
+</section>
+
+
+<section class="card actions">
+
+  <div>
+
+    <h2>
+      Save your comic
+    </h2>
+
+    <p>
+      The PDF contains every panel
+      and its story text.
+    </p>
+
+  </div>
+
+
+  <div class="buttons">
+
+    <a
+      class="button"
+      href="/download/{{ pdf_filename }}"
+    >
+      Download PDF
+    </a>
+
+    <a
+      class="button secondary"
+      href="/"
+    >
+      Create Another
+    </a>
+
+  </div>
+
+</section>
+
+{% endblock %}

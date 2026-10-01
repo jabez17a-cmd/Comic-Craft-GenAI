@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="card message">
+
+  <div class="eyebrow">
+    GENERATION ERROR
+  </div>
+
+  <h1>
+    Comic generation failed.
+  </h1>
+
+  <p>
+    {{ message }}
+  </p>
+
+  <p class="hint">
+    Check your .env API keys and
+    the VS Code terminal for the
+    detailed error.
+  </p>
+
+  <a
+    class="button secondary"
+    href="/"
+  >
+    Return Home
+  </a>
+
+</section>
+
+{% endblock %}

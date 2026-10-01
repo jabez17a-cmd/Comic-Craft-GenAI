@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="hero">
+
+  <div class="eyebrow">
+    AI STORY STUDIO
+  </div>
+
+  <h1>
+    Turn one idea into a comic.
+  </h1>
+
+  <p>
+    ComicCraft creates a five-panel story,
+    narration, dialogue, illustrations
+    and a downloadable PDF.
+  </p>
+
+</section>
+
+
+<section class="card">
+
+<form
+  id="comic-form"
+  action="/generate"
+  method="post"
+>
+
+  <label>
+
+    Story Prompt
+
+    <textarea
+      name="story_prompt"
+      rows="5"
+      required
+      placeholder="Enter a story prompt here"
+    ></textarea>
+
+  </label>
+
+
+  <div class="grid">
+
+    <label>
+
+      Main Character Name
+
+      <input
+        name="character_name"
+        required
+        placeholder="Rumi"
+      >
+
+    </label>
+
+
+    <label>
+
+      Setting
+
+      <input
+        name="setting"
+        required
+        maxlength="300"
+        placeholder="A magical forest"
+        >
+
+    </label>
+
+
+    <label>
+
+      Story Tone
+
+      <input
+        name="tone"
+        required
+        placeholder="Funny, dramatic, etc."
+        >
+
+    </label>
+
+
+    <label>
+
+      Art Style
+
+      <input
+        name="art_style"
+        required
+        maxlength="300"
+        placeholder="Cartoon, anime, etc."
+        >
+
+    </label>
+
+  </div>
+
+
+  <button
+    id="generate-button"
+    class="button"
+    type="submit"
+  >
+    Create My Comic
+  </button>
+
+
+  <p class="hint">
+    Generation may take several minutes because
+    five illustrations are created.
+  </p>
+
+</form>
+
+</section>
+
+{% endblock %}
